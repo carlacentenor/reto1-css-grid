@@ -100,7 +100,6 @@ body {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     padding: 30px;
-
 }
 
 .list-video p{
