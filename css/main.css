@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-shadow: 0px 4px 36px -13px rgba(0, 0, 0, 0.53);
+    padding: 0 25px;
+    height: 10vh;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Baloo Thambi', cursive;
+    font-size: 25px;
+    color: #28c7cc;
+}
+
+.logo img {
+    width: 45px;
+}
+
+.logo span {
+    position: relative;
+    top: 8px;
+    padding-left: 5px;
+}
+
+.info-user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+.info-user img {
+    width: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input {
+    border: 1px solid #ccc9c9;
+    border-radius: 5px;
+    padding: 8px;
+    width: 100%;
+
+}
+
+.search input::placeholder {
+    color: #ccc9c9
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 100px auto;
+}
+
+.menu {
+    display: grid;
+    grid-template-rows: 80px 80px 80px 1fr;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    height: 100%;
+    background-color: rgb(40, 199, 204);
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+.menu i {
+    font-size: 25px;
+}
+
+.menu p {
+    margin: 0;
+}
+
+.menu .ajustes {
+    align-self: end;
+    padding-bottom: 20px
+}
+
+.list-video {
+    font-family: 'Lato', sans-serif;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 30px;
+
+}
+
+.list-video p{
+    font-weight: bold;
+}
+
+.top-videos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px
+}
+
+.top-videos img {
+    width: 100%;
+    height: 100%;
+}
+
+.top-videos figcaption {
+    display: none;
+}
+
+.video {
+    position: relative;
+    transition: .5s;
+}
+
+.video:hover figcaption {
+    background: rgba(41, 57, 58, 0.8);
+    position: absolute;
+    font-size: 12px;
+    bottom: 0;
+    height: 50%;
+    align-items: center;
+    text-align: left;
+    padding: 0 15px;
+    display: block;
+    font-family: 'Lato', sans-serif;
+    color: white;
+
+}
+
+
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.bounceInUp {
+    -webkit-animation-name: bounceInUp;
+    animation-name: bounceInUp;
+}
+
+@keyframes bounceInUp {
+
+    from,
+   
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    from {
+        opacity: 0;
+        transform: translate3d(0, 10px, 0);
+        height: 10%;
+
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        height: 50%;
+    }
+}
