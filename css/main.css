@@ -4,6 +4,7 @@ body {
     box-sizing: content-box;
 }
 
+
 .nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -67,11 +68,14 @@ body {
 .main {
     display: grid;
     grid-template-columns: 100px auto;
+    grid-template-areas: "menu list-video";
 }
 
 .menu {
+    grid-area: menu;
     display: grid;
     grid-template-rows: 80px 80px 80px 1fr;
+    grid-template-areas: "home""trending""likes""ajustes";
     align-items: center;
     justify-items: center;
     text-align: center;
@@ -86,30 +90,45 @@ body {
     font-size: 25px;
 }
 
+.home {
+    grid-area: home;
+}
+
+.trending {
+    grid-area: trending;
+}
+
+.likes {
+    grid-area: likes;
+}
+
+
 .menu p {
     margin: 0;
 }
 
 .menu .ajustes {
     align-self: end;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    grid-area: ajustes;
 }
 
 .list-video {
+    grid-area: list-video;
     font-family: 'Lato', sans-serif;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
+
     padding: 30px;
 }
 
-.list-video p{
+.list-video p {
     font-weight: bold;
 }
 
 .top-videos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .top-videos img {
@@ -122,8 +141,11 @@ body {
 }
 
 .video {
+    width: 33%;
+    grid-area: video;
     position: relative;
     transition: .5s;
+    margin-right: 20px;
 }
 
 .video:hover figcaption {
@@ -141,8 +163,6 @@ body {
 
 }
 
-
-
 .animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -151,14 +171,60 @@ body {
 }
 
 .bounceInUp {
-    -webkit-animation-name: bounceInUp;
+
     animation-name: bounceInUp;
 }
+
+
+
+@media screen and (max-width:768px) {
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-areas: "menu"
+            "list-video";
+    }
+
+    .menu {
+
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: "home trending likes ajustes";
+        height: auto;
+        padding: 10px;
+    }
+
+    .menu .ajustes {
+        padding-bottom: 0px;
+    }
+
+    .search input {
+        display: none;
+    }
+
+    .top-videos {
+        display: block;
+
+    }
+
+    .video {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .bounceInUp {
+        animation-name: bounceInUp2;
+    }
+
+}
+
+/* Animate */
+
+
 
 @keyframes bounceInUp {
 
     from,
-   
+
     to {
         -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
         animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -170,8 +236,35 @@ body {
         height: 10%;
 
     }
+
     to {
         transform: translate3d(0, 0, 0);
-        height: 50%;
+        height: 60%;
+
     }
+
+}
+
+@keyframes bounceInUp2 {
+
+    from,
+
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    from {
+        opacity: 0;
+        transform: translate3d(0, 10px, 0);
+        height: 10%;
+
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        height: 60%;
+
+    }
+
 }
